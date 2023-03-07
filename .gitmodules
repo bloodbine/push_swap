@@ -1,0 +1,4 @@
+[submodule "libft-gpasztor"]
+	path = libft-gpasztor
+	url = https://github.com/bloodbine/libft-gpasztor.git
+	branch = main
