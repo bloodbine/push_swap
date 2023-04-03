@@ -1,8 +1,16 @@
 NAME		= push_swap
 
-SRC		= 	push_swap.c	\
-			helper.c	\
-			swap.c
+SRC		= 	push_swap.c		\
+			move_helper.c	\
+			helper.c		\
+			swap.c			\
+			push.c			\
+			rotate.c		\
+			reverse_rotate.c\
+			sort.c			\
+			sort_helper.c	\
+			sort_back.c		\
+			error.c
 
 SRCOBJ	= $(SRC:.c=.o)
 
@@ -11,7 +19,7 @@ CC		= cc
 RM		= rm -f
 IFLAGS	= -I include
 CFLAGS	= -Wall -Wextra -Werror
-CAFILES = libft-gpasztor/libft.a
+CAFILES = libft/libft.a
 CAFLAGS = $(CAFILES) $(IFLAGS)
 
 %.o : %.c
@@ -22,16 +30,15 @@ $(NAME) : libmake $(SRCOBJ)
 
 libmake:
 	@git submodule update --init --recursive --remote
-	@cd libft-gpasztor && $(MAKE)
-	@curl https://icanhazdadjoke.com/
+	@cd libft && $(MAKE)
 
 clean: 
 	@$(RM) $(SRCOBJ)
-	@cd libft-gpasztor && $(MAKE) clean
+	@cd libft && $(MAKE) clean
 
 fclean: clean
 	@$(RM) $(NAME)
-	@cd libft-gpasztor && $(MAKE) fclean
+	@cd libft && $(MAKE) fclean
 
 re: fclean all
 
